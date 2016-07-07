@@ -1,0 +1,17 @@
+{
+	"name": "Code Share",
+	"authors": [
+		"Sergey Pererva <proger.su@gmail.com>"
+	],
+	"description": "Service for code share",
+	"main": "",
+	"moduleType": [
+	],
+	"license": "MIT",
+	"homepage": "http://proger.su",
+	"dependencies": {
+		"ace-builds": "~1.2.3",
+		"jquery": "~3.0.0",
+		"medoo": "catfan/medoo#~1.1.1"
+	}
+}
