@@ -1,19 +1,19 @@
-<header>
+<form id="header" method="post" action="<?php echo $data['id'] ? '/update/' . $data['id'] : '/update' ?>">
 	<div class="left">
-		<select>
-			<option value="ace/mode/php">PHP</option>
-			<option value="ace/mode/javascript">JS</option>
-			<option value="ace/mode/css">CSS</option>
+		<select id="type" name="type">
+			<?php foreach ($data['types'] as $val => $type) { ?>
+				<option value="<?php echo $val ?>" <?php echo $val == $data['type'] ? 'selected' : '' ?>><?php echo $type; ?></option>
+			<?php } ?>
 		</select>
 	</div>
-	<div class="center">
+	<a href="/" class="center">
 		<img src="/img/logo.png" alt="" />
-	</div>
+	</a>
 	<div class="right">
-		<button id="save">Save</button>
+		<textarea id="code" name="code" class="hidden"><?php echo $data['code'] ? $data['code'] : ''; ?></textarea>
+		<button id="update" type="submit">Update</button>
 	</div>
-</header>
-
+</form>
 
 <div id="editor"></div>
 

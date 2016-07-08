@@ -16,13 +16,15 @@ class Route {
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 
 		// получаем имя контроллера
-		if (!empty($routes[1])) {
+		if (!empty($routes[1]) && !is_numeric($routes[1])) {
 			$controller_name = $routes[1];
+			unset($routes[1]);
 		}
 
 		// получаем имя экшена
-		if (!empty($routes[2])) {
+		if (!empty($routes[2]) && !is_numeric($routes[2])) {
 			$action_name = $routes[2];
+			unset($routes[2]);
 		}
 
 		$model_name = $controller_name;
@@ -57,7 +59,7 @@ class Route {
 
 		if (method_exists($controller, $action)) {
 			// вызываем действие контроллера
-			$controller->$action();
+			$controller->$action($params = array_values(array_diff($routes, array(''))));
 		} else {
 			// здесь также разумнее было бы кинуть исключение
 			Route::ErrorPage404();
@@ -68,7 +70,14 @@ class Route {
 		$host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
 		header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:' . $host . '404');
+		header('Location:' . $host . 'notfound');
+		die();
+	}
+
+	function RedirectTo($url) {
+		$host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+		header('Location:' . $host . $url);
+		die();
 	}
 
 }
