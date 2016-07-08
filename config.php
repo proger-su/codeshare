@@ -1,13 +1,13 @@
 <?php
-// If you installed via composer, just use this code to requrie autoloader on the top of your projects.
-require_once 'bower_components/medoo/medoo.php';
 
-$database = new medoo([
-	// required
-	'database_type' => 'mysql',
-	'database_name' => 'name',
-	'server' => 'localhost',
-	'username' => 'your_username',
-	'password' => 'your_password',
-	'charset' => 'utf8',
-]);
+define('PATH', dirname(__FILE__));
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+define('DB_NAME', 'site_hottoursinf');
+define('DB_USER', 'site_hottoursinf');
+define('DB_PASSWORD', 'NctaApSUDuNcPrvj');
+define('DB_HOST', 'localhost');
+define('DB_CHARSET', 'utf8');
+
+
+mb_internal_encoding('UTF-8');

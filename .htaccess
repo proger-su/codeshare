@@ -1,0 +1,10 @@
+#Lock
+AuthType Basic
+AuthName "Private Area"
+AuthUserFile /home/pererva/NetBeansProjects/code.proger.su/.htpasswd
+Require user proger
+
+# Engine routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php [L]

@@ -12,6 +12,7 @@
 	"dependencies": {
 		"ace-builds": "~1.2.3",
 		"jquery": "~3.0.0",
-		"medoo": "catfan/medoo#~1.1.1"
+		"medoo": "catfan/medoo#~1.1.1",
+		"normalize-scss": "~3.0.3"
 	}
 }
